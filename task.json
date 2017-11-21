@@ -1,0 +1,76 @@
+{
+  "id": "4f6d3720-ce07-11e7-8e5b-bbaa9562b4d7",
+  "name": "armCredentials",
+  "friendlyName": "ARM Credentials",
+  "description": "This task reads the Azure endpoint credentials and sets them as VSTS secure variables that can be used by subsequent tasks",
+  "author": "Objectivity Ltd",
+  "category": "Deploy",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "0",
+    "Minor": "1",
+    "Patch": "0"
+  },
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "ARM Credentials",
+  "groups": [
+    {
+        "name": "AzureDetails",
+        "displayName": "Azure Details",
+        "isExpanded": true
+    },
+    {
+        "name": "VariablesDetails",
+        "displayName": "Names of variables that will be created",
+        "isExpanded": true
+    }
+],
+  "inputs": [
+    {
+        "name": "ConnectedServiceName",
+        "type": "connectedService:AzureRM",
+        "label": "Azure subscription",
+        "defaultValue": "",
+        "required": true,
+        "groupName": "AzureDetails",
+        "helpMarkDown": "Select the Azure Resource Manager subscription for the deployment."
+    },
+    {
+        "name": "ServicePrincipalIdVariableName",
+        "type": "string",
+        "label": "Variable name for servicePrincipalId",
+        "defaultValue": "servicePrincipalId",
+        "required": true,
+        "groupName": "VariablesDetails",
+        "helpMarkDown": "The name of the secure variable under which servicePrincipalId will be saved"
+    },
+    {
+        "name": "ServicePrincipalKeyVariableName",
+        "type": "string",
+        "label": "Variable name for servicePrincipalKey",
+        "defaultValue": "servicePrincipalKey",
+        "required": true,
+        "groupName": "VariablesDetails",
+        "helpMarkDown": "The name of the secure variable under which servicePrincipalKey will be saved"
+    },
+    {
+        "name": "TenantIdVariableName",
+        "type": "string",
+        "label": "Variable name for tenantId",
+        "defaultValue": "tenantId",
+        "required": true,
+        "groupName": "VariablesDetails",
+        "helpMarkDown": "The name of the secure variable under which tenantId will be saved"
+    }
+  ],
+  "execution": {
+    "Node": {
+      "target": "src/bootstraper.js",
+      "argumentFormat": ""
+    }
+  }
+}
