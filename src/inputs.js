@@ -12,6 +12,7 @@ function getVariablesNames() {
     names.serviceprincipalid = tl.getInput("ServicePrincipalIdVariableName", true);
     names.servicePrincipalKey = tl.getInput("ServicePrincipalKeyVariableName", true);
     names.tenantId = tl.getInput("TenantIdVariableName", true);
+    names.subscriptionId = tl.getInput("SubscriptionIdVariableName", true);
 
     return names;
 }
