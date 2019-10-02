@@ -1,6 +1,6 @@
 {
   "name": "arm-credentials",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "VSTS task for copying Azure endpoint credentials into secure variables that can be used by subsequent tasks",
   "main": "./src/bootstraper.js",
   "author": "Objectivity Ltd",
